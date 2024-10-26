@@ -1,5 +1,12 @@
 [
-  // Base Vim movement (existing, keeping your current setup)
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+>>>>>>> 328b684 (feat: My bindings for zed)
   {
     "context": "VimControl && !menu && vim_mode != operator",
     "bindings": {
