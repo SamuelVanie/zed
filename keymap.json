@@ -1,0 +1,96 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "u": "vim::Up",
+      "n": "vim::Left",
+      "i": "vim::Right",
+      "e": "vim::Down",
+      "t": "vim::InsertBefore",
+      "j": "vim::Undo",
+      "h": "editor::MoveToBeginningOfLine",
+      "o": "vim::EndOfLine"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w n": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w i": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w u": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w e": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-w n": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w i": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w u": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w e": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c l": "diagnostics::Deploy",
+      // close all other panes
+      "space 3": "pane::CloseInactiveItems",
+      "space t t": "pane::RevealInProjectPanel",
+      "space t c": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "ctrl-x f": "file_finder::Toggle",
+      "space p p": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-z": "terminal_panel::ToggleFocus",
+      "ctrl-space space": "assistant::ToggleFocus",
+      "ctrl-space n": "assistant::NewContext"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-n": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-i": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-u": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-e": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  // File panel (netrw)
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+
+      // Navigate between panel
+      "ctrl-n": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-i": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-u": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-e": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]
