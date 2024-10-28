@@ -16,7 +16,11 @@
       "t": "vim::InsertBefore",
       "j": "vim::Undo",
       "h": "editor::MoveToBeginningOfLine",
-      "o": "vim::EndOfLine"
+      "o": "vim::EndOfLine",
+      "l": "vim::PreviousWordStart",
+      "y": "vim::NextWordEnd",
+      "c": "vim::Yank",
+      "x": "editor::Cut"
     }
   },
   {
@@ -60,7 +64,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-z": "terminal_panel::ToggleFocus",
+      "ctrl-x ctrl-y": "terminal_panel::ToggleFocus",
       "ctrl-space space": "assistant::ToggleFocus",
       "ctrl-space n": "assistant::NewContext"
     }
