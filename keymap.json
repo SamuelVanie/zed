@@ -1,0 +1,165 @@
+[
+  // Base Vim movement (existing, keeping your current setup)
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "u": "vim::Up",
+      "n": "vim::Left",
+      "i": "vim::Right",
+      "e": "vim::Down",
+      "s": "vim::InsertBefore",
+      "U": "editor::Undo",
+      // Buffer navigation
+      "<": "pane::ActivatePreviousItem",
+      ">": "pane::ActivateNextItem"
+    }
+  },
+
+  // Normal mode leader/space bindings (existing + new navigation)
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // Existing bindings
+      "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c l": "diagnostics::Deploy",
+      "space 3": "pane::CloseOtherItems",
+      "space t t": "pane::RevealInProjectPanel",
+      "space t c": "workspace::ToggleLeftDock",
+
+      "space a": "workspace::ToggleRightDock",
+
+      // Window/Pane management ($ prefix equivalent)
+      "$ n": "workspace::ActivatePaneLeft", // windmove-left
+      "$ u": "workspace::ActivatePaneUp", // windmove-up
+      "$ e": "workspace::ActivatePaneDown", // windmove-down
+      "$ i": "workspace::ActivatePaneRight", // windmove-right
+      "$ $": "pane::CloseActiveItem",
+      "$ m": "workspace::ToggleZoom", // maximize-window
+
+      // Tab management (# prefix equivalent)
+      "# l": "workspace::NewFile", // tab-new equivalent
+      "space p f": "file_finder::Toggle", // find-file-other-tab
+
+      // Window splitting (#% prefix equivalent)
+      "% e": "pane::SplitDown", // split-window-below
+      "% i": "pane::SplitRight", // split-window-right
+
+      // LSP Navigation (h prefix equivalent)
+      "h d": "editor::GoToDefinition", // lsp-ui-peek-find-definitions
+      "h r": "editor::FindAllReferences", // lsp-ui-peek-find-references
+      "h i": "editor::GoToImplementation", // lsp-ui-peek-find-implementations
+      "h h": "editor::Hover", // lsp-ui-doc-toggle equivalent
+      "h e": "diagnostics::Deploy", // lsp-ui-flycheck-list
+
+      // Error navigation (() prefix equivalent)
+      "( )": "diagnostics::Deploy", // flycheck-list-errors
+
+      // Multiple cursor hydra (+ prefix)
+      "+ >": "editor::AddSelectionBelow", // mc/mark-next-like-this
+      "+ <": "editor::AddSelectionAbove", // mc/mark-previous-like-this
+      "+ i": "editor::SelectNext", // mc/skip-to-next-like-this
+      "+ n": "editor::SelectPrevious", // mc/skip-to-previous-like-this
+
+      // Avy-like navigation (@ prefix) - using go to line/symbol
+      "@ @": "go_to_line::Toggle", // avy-goto-char-in-line
+      "@ #": "outline::Toggle", // avy-goto-char equivalent
+      "@ l l": "editor::MoveToEndOfLine" // avy-goto-end-of-line
+    }
+  },
+
+  // Global bindings (matching your Emacs global bindings)
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Terminal management
+      "ctrl-x ctrl-y": "terminal_panel::ToggleFocus", // multi-vterm-dedicated-toggle
+
+      // File finding (C-c f prefix)
+      "ctrl-c f f": "editor::OpenUrl", // ffap equivalent
+      "space p f": "file_finder::Toggle", // ffap-menu equivalent
+
+      // Helm equivalents
+      "ctrl-s": "buffer_search::Deploy", // helm-occur
+      // helm-find-files
+      "ctrl-x b": "tab_switcher::Toggle", // helm-buffers-list
+
+      // Project-wide search
+      "ctrl-c h s": "project_search::ToggleFocus", // helm-do-grep-ag
+      // helm-find
+
+      // Other navigation
+      "ctrl-c r": "project_search::ToggleFocus", // rgrep
+       // popper-toggle
+    }
+  },
+
+  // Empty pane context (existing + additions)
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space p f": "file_finder::Toggle",
+      "space p p": "projects::OpenRecent"
+    }
+  },
+
+  // Project panel navigation (existing + additions matching Dired)
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "tab": "project_panel::ExpandSelectedEntry", // dired-subtree-toggle
+      "ctrl-x ctrl-n": "workspace::ToggleLeftDock", // dired-sidebar-toggle-sidebar
+      "q": "workspace::ToggleRightDock",
+      // Navigate between panel
+      "space n": "workspace::ActivatePaneLeft",
+      "space i": "workspace::ActivatePaneRight",
+      "space u": "workspace::ActivatePaneUp",
+      "space e": "workspace::ActivatePaneDown"
+    }
+  },
+
+  // Buffer/tab navigation globally
+  {
+    "context": "Editor",
+    "bindings": {
+      // Go to line/symbol search (global avy equivalents)
+      "ctrl-z @ @": "go_to_line::Toggle",
+      "ctrl-z @ #": "outline::Toggle",
+      "ctrl-z @ l l": "editor::MoveToEndOfLine"
+    }
+  },
+
+  // Search and replace contexts
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "ctrl-c h s": "project_search::ToggleFilters"
+    }
+  },
+
+  // Terminal context
+  {
+    "context": "Terminal",
+    "bindings": {
+      "$ n": "workspace::ActivatePaneLeft",
+      "$ i": "workspace::ActivatePaneRight",
+      "$ e": "workspace::ActivatePaneDown",
+      "$ u": "workspace::ActivatePaneUp",
+      "ctrl-c v n": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)",
+    "bindings": {
+      "space f": null
+    }
+  }
+]
