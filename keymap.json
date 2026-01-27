@@ -1,12 +1,11 @@
 [
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
->>>>>>> 328b684 (feat: My bindings for zed)
+  // Zed keymap
+  //
+  // For information on binding keys, see the Zed
+  // documentation: https://zed.dev/docs/key-bindings
+  //
+  // To see the default key bindings run `zed: open default keymap`
+  // from the command palette.
   {
     "context": "VimControl && !menu && vim_mode != operator",
     "bindings": {
@@ -18,8 +17,8 @@
       "U": "editor::Undo",
       // Buffer navigation
       "<": "pane::ActivatePreviousItem",
-      ">": "pane::ActivateNextItem"
-    }
+      ">": "pane::ActivateNextItem",
+    },
   },
 
   // Normal mode leader/space bindings (existing + new navigation)
@@ -72,8 +71,8 @@
       // Avy-like navigation (@ prefix) - using go to line/symbol
       "@ @": "go_to_line::Toggle", // avy-goto-char-in-line
       "@ #": "outline::Toggle", // avy-goto-char equivalent
-      "@ l l": "editor::MoveToEndOfLine" // avy-goto-end-of-line
-    }
+      "@ l l": "editor::MoveToEndOfLine", // avy-goto-end-of-line
+    },
   },
 
   // Global bindings (matching your Emacs global bindings)
@@ -98,8 +97,8 @@
 
       // Other navigation
       "ctrl-c r": "project_search::ToggleFocus", // rgrep
-       // popper-toggle
-    }
+      // popper-toggle
+    },
   },
 
   // Empty pane context (existing + additions)
@@ -107,8 +106,8 @@
     "context": "EmptyPane || SharedScreen",
     "bindings": {
       "space p f": "file_finder::Toggle",
-      "space p p": "projects::OpenRecent"
-    }
+      "space p p": "projects::OpenRecent",
+    },
   },
 
   // Project panel navigation (existing + additions matching Dired)
@@ -129,8 +128,8 @@
       "space n": "workspace::ActivatePaneLeft",
       "space i": "workspace::ActivatePaneRight",
       "space u": "workspace::ActivatePaneUp",
-      "space e": "workspace::ActivatePaneDown"
-    }
+      "space e": "workspace::ActivatePaneDown",
+    },
   },
 
   // Buffer/tab navigation globally
@@ -140,16 +139,16 @@
       // Go to line/symbol search (global avy equivalents)
       "ctrl-z @ @": "go_to_line::Toggle",
       "ctrl-z @ #": "outline::Toggle",
-      "ctrl-z @ l l": "editor::MoveToEndOfLine"
-    }
+      "ctrl-z @ l l": "editor::MoveToEndOfLine",
+    },
   },
 
   // Search and replace contexts
   {
     "context": "ProjectSearchBar",
     "bindings": {
-      "ctrl-c h s": "project_search::ToggleFilters"
-    }
+      "ctrl-c h s": "project_search::ToggleFilters",
+    },
   },
 
   // Terminal context
@@ -160,13 +159,13 @@
       "$ i": "workspace::ActivatePaneRight",
       "$ e": "workspace::ActivatePaneDown",
       "$ u": "workspace::ActivatePaneUp",
-      "ctrl-c v n": "terminal_panel::ToggleFocus"
-    }
+      "ctrl-c v n": "terminal_panel::ToggleFocus",
+    },
   },
   {
     "context": "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)",
     "bindings": {
-      "space f": null
-    }
-  }
+      "space f": null,
+    },
+  },
 ]
