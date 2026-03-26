@@ -84,7 +84,7 @@
 
       // File finding (C-c f prefix)
       "ctrl-c f f": "editor::OpenUrl", // ffap equivalent
-      "space p f": "file_finder::Toggle", // ffap-menu equivalent
+      // ffap-menu equivalent
 
       // Helm equivalents
       "ctrl-s": "buffer_search::Deploy", // helm-occur
@@ -106,7 +106,6 @@
     "context": "EmptyPane || SharedScreen",
     "bindings": {
       "space p f": "file_finder::Toggle",
-      "space p p": "projects::OpenRecent",
     },
   },
 
@@ -125,11 +124,7 @@
       "ctrl-x ctrl-n": "workspace::ToggleLeftDock", // dired-sidebar-toggle-sidebar
       "q": "workspace::ToggleRightDock",
       // Navigate between panel
-      "space n": "workspace::ActivatePaneLeft",
-      "space i": "workspace::ActivatePaneRight",
-      "space u": "workspace::ActivatePaneUp",
-      "space e": "workspace::ActivatePaneDown",
-    },
+      },
   },
 
   // Buffer/tab navigation globally
@@ -160,12 +155,6 @@
       "$ e": "workspace::ActivatePaneDown",
       "$ u": "workspace::ActivatePaneUp",
       "ctrl-c v n": "terminal_panel::ToggleFocus",
-    },
-  },
-  {
-    "context": "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)",
-    "bindings": {
-      "space f": null,
     },
   },
 ]

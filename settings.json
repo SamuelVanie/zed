@@ -11,11 +11,11 @@
   "agent": {
     "default_profile": "ask",
     "default_model": {
-      "provider": "lmstudio",
-      "model": "essentialai/rnj-1"
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
     }
   },
-  "base_keymap": "VSCode",
+  "base_keymap": "Emacs",
   "vim_mode": true,
   "ui_font_size": 16,
   "ui_font_family": "VictorMono Nerd Font",
@@ -24,7 +24,7 @@
   "load_direnv": "shell_hook",
   "theme": {
     "mode": "system",
-    "light": "Ayu Dark",
-    "dark": "One Dark"
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
   }
 }
